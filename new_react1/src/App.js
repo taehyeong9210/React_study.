@@ -1,16 +1,7 @@
-import { Component } from 'react';
-import Mycomponent from './Mycomponent';
+import EventPractice from './EventPractice';
 
-class App extends Component {
-  render() {
-    const name = 'react';
-    return (
-      <>
-        <div className="react">{name}</div>
-        <Mycomponent>리액트</Mycomponent>
-      </>
-    );
-  }
-}
+const App = () => {
+  return <EventPractice />;
+};
 
 export default App;
