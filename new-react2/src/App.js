@@ -1,8 +1,8 @@
 import { Component } from "react";
-import ValidationSample from "./ValidationSample.js";
+import IterationSample from "./IterationSample";
 
 const App = () => {
-  return <ValidationSample />;
+  return <IterationSample />;
 };
 
 export default App;
