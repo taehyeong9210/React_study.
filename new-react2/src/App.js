@@ -1,8 +1,22 @@
-import { Component } from "react";
-import IterationSample from "./IterationSample";
+import { Component, useState } from "react";
+import Info from "./Info";
 
 const App = () => {
-  return <IterationSample />;
+  const [visibility, setVisibility] = useState(false);
+
+  return (
+    <div>
+      <button
+        onClick={() => {
+          setVisibility(!visibility);
+        }}
+      >
+        {visibility ? "숨기기" : "보이기"}
+      </button>
+      <hr />
+      {visibility && <Info />}
+    </div>
+  );
 };
 
 export default App;
