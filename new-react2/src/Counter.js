@@ -6,7 +6,7 @@ const Counter = () => {
   return (
     <>
       <p>
-        현재 카운터 값은 <stong>{value}</stong>입니다.
+        현재 카운터 값은 <b>{value}</b>입니다.
       </p>
       <button
         onClick={() => {
