@@ -4,13 +4,9 @@ const InfoEffect = () => {
   const [name, setName] = useState("");
   const [nickname, setNickname] = useState("");
   useEffect(() => {
-    console.log("effect");
-    console.log(name);
-    return () => {
-      console.log("clean-up");
-      console.log(name);
-    };
-  }, [name]);
+    console.log("마운트 될 때만 실행됩니다.");
+    console.log({ name, nickname });
+  }, []);
 
   const onChangeName = (e) => {
     setName(e.target.value);
@@ -20,7 +16,7 @@ const InfoEffect = () => {
   };
 
   return (
-    <div>
+    <div style={{ padding: "20px" }}>
       <div>
         <input value={name} onChange={onChangeName} />
         <input value={nickname} onChange={onChangeNickname} />
