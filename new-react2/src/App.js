@@ -1,8 +1,12 @@
 import { Component, useState } from "react";
-import Average from "./Average";
+import Sasscomponent from "./Sasscomponent";
 
 const App = () => {
-  return <Average />;
+  return (
+    <div>
+      <Sasscomponent />;
+    </div>
+  );
 };
 
 export default App;

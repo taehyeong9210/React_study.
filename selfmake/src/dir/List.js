@@ -1,7 +1,14 @@
-import React from "react";
+import React from 'react';
+import Item from './Item';
 
-const List = () => {
-  return <div>리스트</div>;
+const List = ({ todos, onDelete }) => {
+  return (
+    <div>
+      {todos.map((todo, index) => (
+        <Item key={index} todo={todo} onDelete={() => onDelete(index)} />
+      ))}
+    </div>
+  );
 };
 
 export default List;

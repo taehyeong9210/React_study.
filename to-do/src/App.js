@@ -4,25 +4,8 @@ import TodoList from './directory/TodoList';
 import { useState, useCallback, useRef } from 'react';
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: '리액트의 기초 알아보기',
-      checked: true,
-    },
-    {
-      id: 2,
-      text: '컴포넌트 스타일링 해보기',
-      checked: true,
-    },
-    {
-      id: 3,
-      text: '일정 관리 앱 만들기',
-      checked: false,
-    },
-  ]);
-
-  const nextId = useRef(4);
+  const [todos, setTodos] = useState([]);
+  const nextId = useRef(1);
 
   const onInsert = useCallback(
     (text) => {
@@ -31,7 +14,7 @@ function App() {
         text,
         checked: false,
       };
-      setTodos(todos.concat(todo));
+      setTodos((todos) => todos.concat(todo));
       nextId.current += 1;
     },
     [todos],
@@ -39,7 +22,7 @@ function App() {
 
   const onRemove = useCallback(
     (id) => {
-      setTodos(todos.filter((todo) => todo.id !== id));
+      setTodos((todos) => todos.filter((todo) => todo.id !== id));
     },
     [todos],
   );
@@ -54,6 +37,14 @@ function App() {
     },
     [todos],
   );
+
+  // function create() {
+  //   const array = [];
+  //   for (let i = 1; i <= 2500; i++) {
+  //     array.push({ id: i, text: `할 일 ${i}`, checked: false });
+  //   }
+  //   return array;
+  // }
 
   return (
     <TodoTemplate>

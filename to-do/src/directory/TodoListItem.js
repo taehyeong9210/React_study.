@@ -3,6 +3,7 @@ import {
   MdCheckBox,
   MdRemoveCircleOutline,
 } from 'react-icons/md';
+import React from 'react';
 import cn from 'classnames';
 import './TodoListItem.scss';
 
@@ -27,4 +28,4 @@ const TodoListItem = ({ todo, onRemove, onToggle }) => {
   );
 };
 
-export default TodoListItem;
+export default React.memo(TodoListItem);

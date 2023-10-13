@@ -1,0 +1,11 @@
+.Insert{
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.InsertInput {
+    width : 80%;
+    border : 2px solid skyblue;
+}
