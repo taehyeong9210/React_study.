@@ -1,8 +1,15 @@
 import express from 'express';
-import WebSocket from 'ws';
 import http from 'http';
+import { Server } from 'socket.io';
 
 const app = express();
+
+const httpServer = http.createServer(app);
+const wsServer = new Server(httpServer);
+
+wsServer.on('connection', (socket) => {
+  socket.on('enter_room', (msg) => console.log(msg));
+});
 
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
@@ -12,20 +19,8 @@ app.use('/public', express.static(__dirname + '/public'));
 app.get('/', (req, res) => res.render('home'));
 app.get('/*', (req, res) => res.redirect('/'));
 
-const handleListen = () => console.log('Listening on http://localhost:3000');
-const server = http.createServer(app);
-const wss = new WebSocket.Server({ server });
+const handleListen = () => {
+  console.log('Listening on http://localhost:3000');
+};
 
-wss.on('connection', (socket) => {
-  console.log('Connected to Browser');
-  socket.on('close', () => {
-    console.log('Disconneted from server');
-  });
-  socket.on('message', (message) => {
-    socket.send(`${message}`);
-  });
-
-  socket.send('Hello');
-});
-
-server.listen(3000, handleListen);
+httpServer.listen(3000, handleListen);
